@@ -34,7 +34,7 @@ public class LinkList<T> {
         return node.value;
     }
 
-    public Object getNodeAt(int index){
+    private Object getNodeAt(int index){
         Node node = this.first;
         for (int i=0;i<index;i++){
             node=node.next;
@@ -85,6 +85,29 @@ public class LinkList<T> {
         }
         length--;
         return length;
+    }
+
+    public class MyItr {
+        private LinkList list;
+        private int currentIndex;
+        private Node currentNode;
+
+        public MyItr(LinkList list,int index){
+            this.list=list;
+            this.currentIndex=index;
+            currentNode =  (Node) list.getNodeAt(index);
+        }
+
+        public boolean hasNext(){
+            return currentNode.next!=null;
+        }
+        public void next(){
+            currentNode=currentNode.next;
+        }
+        public Object currentValue(){
+            return currentNode.value();
+        }
+
     }
 
     public MyItr listIterator(int index){

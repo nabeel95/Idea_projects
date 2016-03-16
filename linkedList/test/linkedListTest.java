@@ -76,7 +76,7 @@ public class linkedListTest {
         linkList.add("a");
         linkList.add("b");
         linkList.add("c");
-        MyItr itr = linkList.listIterator(0);
+        LinkList.MyItr itr = linkList.listIterator(0);
         Assert.assertEquals(true,itr.hasNext());
         itr.next();
         Assert.assertEquals(true,itr.hasNext());
